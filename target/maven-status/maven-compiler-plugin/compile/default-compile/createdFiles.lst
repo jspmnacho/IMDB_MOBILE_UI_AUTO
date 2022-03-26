@@ -1,0 +1,8 @@
+Bases\BaseMobileScreen.class
+core\By.class
+core\ConfigCapabilities.class
+core\MobileAppDriver.class
+core\MobileElement.class
+Bases\BaseMobileTest.class
+Bases\BaseMobileScreen$1.class
+Screens\LocationPopUp.class
