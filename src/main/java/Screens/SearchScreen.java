@@ -4,6 +4,8 @@ import Bases.BaseMobileScreen;
 import core.By;
 import core.MobileElement;
 
+import java.util.List;
+
 public class SearchScreen extends BaseMobileScreen {
 
     private MobileElement searchMenu = new MobileElement(By.Id,
@@ -25,23 +27,33 @@ public class SearchScreen extends BaseMobileScreen {
 
     public void searchTap(){
         findMobileElement(searchMenu).click();
+        waitTime();
     }
 
     public void searchMovie(String movie){
         findMobileElement(searchMovieBanner).sendKeys(movie);
+        waitTime();
     }
 
     public void tapSearchBanner(){
         findMobileElement(searchMovieBanner).click();
+        waitTime();
     }
 
     public String getNameMovie(){
-        String value = String.valueOf(findMobileElement(movieNameResult).getText());
+/*        List<MobileElement> list = (List<MobileElement>) findMobileElement(movieNameResult);
+        for (int i=0; i< list.size(); i++) {
+            (List<MobileElement>) findMobileElement(movieNameResult)
+        }
+*/
+        String value = String.valueOf (findMobileElement(movieNameResult).getText());
         System.out.println(value);
+        waitTime();
         return value;
     }
 
     public void imageMovieTap(){
         findMobileElement(movieImage).click();
+        waitTime();
     }
 }

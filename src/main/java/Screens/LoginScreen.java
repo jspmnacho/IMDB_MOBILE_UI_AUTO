@@ -4,7 +4,7 @@ import Bases.BaseMobileScreen;
 import core.By;
 import core.MobileElement;
 
-public class Login extends BaseMobileScreen {
+public class LoginScreen extends BaseMobileScreen {
 
     private MobileElement notNow = new MobileElement(By.Id,
             "com.imdb.mobile:id/splash_not_now",
@@ -24,25 +24,29 @@ public class Login extends BaseMobileScreen {
 
     private MobileElement okButton = new MobileElement(By.Id,"android:id/button1","Ok button");
 
-    public Login() {
+    public LoginScreen() {
         super();
     }
 
     public void notNow(){
         findMobileElement(notNow).click();
+        waitTime();
     }
 
     public void signInIMDB(){
         findMobileElement(signInIMDB).click();
+        waitTime();
     }
 
     public void signInGoogle(){
         findMobileElement(signInGoogle).click();
+        waitTime();
     }
 
     public void chooseAccount(){
         findMobileElement(chooseAccount).click();
         findMobileElement(okButton).click();
+        waitTime();
     }
 
 
