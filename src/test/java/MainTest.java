@@ -3,41 +3,56 @@ import org.testng.annotations.Test;
 
 public class MainTest extends BaseMobileTest {
 
-//    @AndroidFindBy(uiAutomator = "new UISelector().className(\"android.widget.Button\").textContains(\"ok\")")
-//    public AndroidElement okButton;
-
     @Test
     public void firstScenario() {
         locationPopUp.dontAllowLocation();
         locationPopUp.okStayInformed();
-        login.notNow();
+        loginScreen.notNow();
         searchScreen.searchTap();
         searchScreen.tapSearchBanner();
         searchScreen.searchMovie("Batman");
-        //String val1 = searchScreen.getNameMovie();
+        String val1 = searchScreen.getNameMovie();
         searchScreen.imageMovieTap();
-        //String val2 = movieMain.getMovieName();
-        //movieMain.assertionsEquals(val1, val2);
+        String val2 = movieMainScreen.getMovieName();
+        movieMainScreen.assertionsEquals(val1, val2);
     }
 
     @Test
     public void secondScenario(){
         locationPopUp.allowLocation();
         locationPopUp.okStayInformed();
-        login.signInGoogle();
+        loginScreen.signInGoogle();
         //login.chooseAccount();
         searchScreen.searchTap();
         searchScreen.tapSearchBanner();
         searchScreen.searchMovie("Spiderman");
         searchScreen.imageMovieTap();
-        //String val1 = movieMain.getMovieName();
-        movieMain.addWatchlistClick();
-        //String val2 = youScreen.getMovieText();
-        //movieMain.assertionsEquals(val1, val2);
+        String val1 = movieMainScreen.getMovieName();
+        movieMainScreen.addWatchlistClick();
+        String val2 = youScreen.getMovieText();
+        movieMainScreen.assertionsEquals(val1, val2);
     }
 
     @Test
-    public void thirdScenario(){
-
+    public void thirdScenario() throws InterruptedException {
+        locationPopUp.allowLocation();
+        locationPopUp.okStayInformed();
+        loginScreen.signInGoogle();
+        searchScreen.searchTap();
+        searchScreen.tapSearchBanner();
+        searchScreen.searchMovie("Spiderman");
+        searchScreen.imageMovieTap();
+        movieMainScreen.scrollDown("Add a Review");
+        ratingScreen.addRating();
+        //ratingScreen.headlineText("Head line text");
+        ratingScreen.reviewText("Review text for the movie selected, Review text for the movie selected, " +
+                "Review text for the movie selected, Review text for the movie selected, " +
+                "Review text for the movie selected");
+        ratingScreen.checkContainsSpoilers("No");
+        ratingScreen.submitRating();
+        String val1 = ratingScreen.checkReview();
+        System.out.println(val1);
+        ratingScreen.assertionsEquals(val1, "Submission successful");
+        ratingScreen.reviewOkButton();
     }
 }
