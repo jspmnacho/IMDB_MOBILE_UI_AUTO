@@ -3,6 +3,7 @@ package Bases;
 import core.ConfigCapabilities;
 import core.MobileAppDriver;
 import core.MobileElement;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -13,9 +14,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
+import java.awt.*;
+import java.util.concurrent.TimeUnit;
+
 public class BaseMobileScreen {
-    private AndroidDriver<AndroidElement> driver;
-    private WebDriverWait wait;
+    protected AndroidDriver<AndroidElement> driver;
+    protected WebDriverWait wait;
     private AndroidElement androidElement;
     private String mobileElementDescription;
 
@@ -77,5 +81,9 @@ public class BaseMobileScreen {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void waitTime(){
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }

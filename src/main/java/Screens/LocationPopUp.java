@@ -26,21 +26,26 @@ public class LocationPopUp extends BaseMobileScreen {
 
     public void allowLocation(){
         findMobileElement(whileUsingApp).click();
+        waitTime();
     }
 
     public void onlyThisTime(){
         findMobileElement(onlyThisTime).click();
+        waitTime();
     }
 
     public void dontAllowLocation(){
         findMobileElement(dontAllow).click();
+        waitTime();
     }
 
     public void okStayInformed(){
         findMobileElement(okTap).click();
+        waitTime();
     }
 
     public void reviewStayInformed(){
         findMobileElement(reviewTap).click();
+        waitTime();
     }
 }
