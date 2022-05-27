@@ -1,6 +1,8 @@
 package core;
 
-public class MobileElement {
+import org.openqa.selenium.WebElement;
+
+public class MobileElement implements WebElement {
 
     public By by;
     public String element;
